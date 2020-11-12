@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="Validate_001.js">
+        /*Разработайте страницу регистрации нового пользователя. Форма должна получать от пользователя
+        следующие данные: имя, фамилия, логин, пароль, подтверждение пароля, email, пол
+        (мужчина/женщина).
+        Форма должна проверять:
+        1) Все поля вводов должны быть заполнены.
+        2) Пароль и подтверждение пароля должны совпадать.
+        3) Email должен быть указан в правильном формате.
+        При неудовлетворении этих правил форма должна выводить сообщение об ошибке (не через alert).
+        */
+    </script>
+    <style>
+        .error {
+            background-color: #fc6363;
+        }
+        .valid {
+            background-color: #81e569;
+        }
+    </style>
+</head>
+<body>
+    <form name="form1">
+        имя: <br>
+        <input type="text" name="userName"
+            data-val="\S"
+            data-val-msg="Введите значение"
+            data-val-msg-id="userNameMsg" required/>
+
+        <span id="userNameMsg"></span>
+        <br>
+        фамилия: <br>
+        <input type="text" name="userLastName"
+            data-val="\S"
+            data-val-msg="Введите значение"
+            data-val-msg-id="userLastNameMsg" required/>
+
+        <span id="userLastNameMsg"></span>
+        <br>
+        логин: <br>
+        <input type="text" name="login"
+            data-val="\S"
+            data-val-msg="Введите значение"
+            data-val-msg-id="loginMsg" required/>
+
+        <span id="loginMsg"></span>
+        <br>
+        пароль: <br>
+        <input type="password" id="password" name="password"
+            data-val="\S"
+            data-val-msg="значения пароля не совпадают"
+            data-val-msg-id="passwordMsg" required/>
+
+        <span id="passwordMsg"></span>
+        <br>
+        подтверждение пароля: <br>
+        <input type="password" id="confirm_password" name="password2"
+        data-val="\S"
+        data-val-msg="значения пароля не совпадают"
+        data-val-msg-id="password2Msg" required/>
+
+        <span id="password2Msg"></span>
+        <br>
+
+        Email:
+        <input type="email" name="email"
+        data-val="/[a-z0-9._]+@[a-z0-9.-]+\.[a-z]{2,4}/i"
+        data-val-msg="Введите значение"
+        data-val-msg-id="email2Msg" required/>        
+        <span id="emailMsg"></span>
+        <br />
+
+        пол:( 
+        мужчина <input type="radio" checked name="group1" value="mann" /> 
+        женщина <input type="radio" name="group1" value="woman" />)
+        <br /> 
+        <input type="submit" />
+    </form>
+</body>
+</html>

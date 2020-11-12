@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="scriptHW1.js">
+        /*Задание 1
+        Разработайте страницу заказа пиццы.
+        Требования к странице:
+        Можно заказать три вида пиццы – маленькая, большая, средняя.
+        Можно самостоятельно выбрать ингредиенты к пицце – грибы, бекон, помидоры, сыр, оливки.
+        На странице должна вводиться информация о покупателе (его телефон и адрес доставки).
+        Подумайте, какие данные следует проверять на странице, реализуйте эту проверку.
+        Также реализуйте подсчет стоимости пиццы, при выборе размеров и ингредиентов, автоматически
+        должна пересчитываться сумма заказа. Цены на размер пиццы и отдельные ингредиенты выберите
+        произвольно.*/
+    </script>
+    <style>
+        .error {
+            background-color: #fc6363;
+        }
+        .valid {
+            background-color: #81e569;
+        }
+    </style>
+</head>
+<body>
+    <h1>заказ пиццы</h1>
+    <form name="pizza">
+        <h3>Можно заказать три вида пиццы</h3>
+        <!--Переключатель-->
+        маленькая: <input type="radio" checked name="group1" value="small" /> 
+        средняя: <input type="radio" name="group1" value="mittel" />
+        большая: <input type="radio" name="group1" value="big" />
+        <br />
+
+        <h3>ингредиенты</h3>
+        <!--Флажок, основное событие onclick-->
+        <input type="checkbox" unchecked name="checbox1" /> грибы
+        <input type="checkbox" unchecked name="checbox2" /> бекон
+        <input type="checkbox" unchecked name="checbox3" /> помидоры
+        <input type="checkbox" unchecked name="checbox4" /> сыр
+        <input type="checkbox" unchecked name="checbox5" /> оливки
+        <br />
+        
+        <h3>информация о покупателе</h3>   
+        Фамилие:
+        <input type="text" name="userName"
+            data-val="\S"
+            data-val-msg="Введите значение"
+            data-val-msg-id="userNameMsg" required/>
+
+        <span id="userNameMsg"></span>
+        <br>
+
+        Телефон:        
+        <input type="text" name="phone" title="Формат телефона 000-00-00"
+            data-val="\d{3}-\d{2}-\d{2}"
+            data-val-msg="Телефон введен не правильно-Формат телефона 000-00-00" 
+            data-val-msg-id="phoneMsg" required/>
+        <span id="phoneMsg"></span>
+        <br />
+
+        Улица: <br>
+        <input type="text" name="streetId"
+            data-val="\S"
+            data-val-msg="Введите значение"
+            data-val-msg-id="streetMsg" required/>
+
+        <span id="streetMsg"></span>
+        <br>
+        квартира: <br>
+        <input type="text" name="nummerW"
+            data-val="\S"
+            data-val-msg="Введите значение"
+            data-val-msg-id="nummerMsg" required/>
+
+        <span id="nummerMsg"></span>
+        <br>
+        
+        Zip:
+        <input type="text" name="zip"
+            data-val="^\d{5}$"
+            data-val-msg="Почтовый индекс введен не правильно-5 знаков"
+            data-val-msg-id="zipMsg" required/>
+        <span id="zipMsg"></span>
+        <br />
+
+        <input type="submit" /> 
+    </form>
+</body>
+</html>
